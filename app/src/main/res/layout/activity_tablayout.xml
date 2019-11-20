@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activity.TablayoutActivity">
+    <com.kai.kaidong.util.StatusBarView
+        android:id="@+id/sta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.kai.kaidong.util.StatusBarView>
+    <com.antiless.support.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:tabMode="scrollable"
+        app:tabIndicatorHeight="3dp"
+        app:indicatorStartColor="#d6694e"
+        app:indicatorEndColor="#e73820"
+        app:indicatorMarginStart="20dp"
+        app:indicatorMarginEnd="20dp"
+        app:indicatorMarginBottom="3dp">
+    </com.antiless.support.widget.TabLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ddd"
+        />
+
+</LinearLayout>

@@ -1,2 +1,2 @@
-include ':app'
-rootProject.name='Kaidong'
+include ':app',
+        rootProject.name = 'Kaidong', ':SnapTablayout', ':tablayout'

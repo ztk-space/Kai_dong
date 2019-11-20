@@ -1,15 +1,14 @@
-package com.kai.kaidong.fragment;
+package com.kai.kaidong.bottomfragment;
 
 import android.os.Bundle;
 import android.view.View;
 
 import com.kai.kaidong.R;
 import com.kai.kaidong.base.BaseFragment;
-import com.kai.kaidong.internetutil.RetrofitUtil;
 
-public class HomeFragment extends BaseFragment {
-    public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
+public class MineFragment extends BaseFragment {
+    public static MineFragment newInstance() {
+        MineFragment fragment = new MineFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -17,7 +16,7 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        git remote add origin https://github.com/ztk-space/Kai_dong.git
+
     }
 
     @Override
@@ -27,6 +26,6 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected int initLayout() {
-        return R.layout.homefragment;
+        return R.layout.minefragment;
     }
 }

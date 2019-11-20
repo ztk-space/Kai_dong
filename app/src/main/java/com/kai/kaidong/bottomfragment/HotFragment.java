@@ -1,4 +1,4 @@
-package com.kai.kaidong.fragment;
+package com.kai.kaidong.bottomfragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,9 +6,9 @@ import android.view.View;
 import com.kai.kaidong.R;
 import com.kai.kaidong.base.BaseFragment;
 
-public class MineFragment extends BaseFragment {
-    public static MineFragment newInstance() {
-        MineFragment fragment = new MineFragment();
+public class HotFragment extends BaseFragment {
+    public static HotFragment newInstance() {
+        HotFragment fragment = new HotFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -26,6 +26,6 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected int initLayout() {
-        return R.layout.minefragment;
+        return R.layout.hotfragment;
     }
 }

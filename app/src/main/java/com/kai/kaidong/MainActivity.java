@@ -11,9 +11,9 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
-import com.kai.kaidong.fragment.HomeFragment;
-import com.kai.kaidong.fragment.HotFragment;
-import com.kai.kaidong.fragment.MineFragment;
+import com.kai.kaidong.bottomfragment.HomeFragment;
+import com.kai.kaidong.bottomfragment.HotFragment;
+import com.kai.kaidong.bottomfragment.MineFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener{
     BottomNavigationBar mBottomNavigationBar;

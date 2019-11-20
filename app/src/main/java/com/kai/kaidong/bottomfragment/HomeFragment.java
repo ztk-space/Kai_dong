@@ -1,4 +1,4 @@
-package com.kai.kaidong.fragment;
+package com.kai.kaidong.bottomfragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,9 +6,9 @@ import android.view.View;
 import com.kai.kaidong.R;
 import com.kai.kaidong.base.BaseFragment;
 
-public class HotFragment extends BaseFragment {
-    public static HotFragment newInstance() {
-        HotFragment fragment = new HotFragment();
+public class HomeFragment extends BaseFragment {
+    public static HomeFragment newInstance() {
+        HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -26,6 +26,6 @@ public class HotFragment extends BaseFragment {
 
     @Override
     protected int initLayout() {
-        return R.layout.hotfragment;
+        return R.layout.homefragment;
     }
 }

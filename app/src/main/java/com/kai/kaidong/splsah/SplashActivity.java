@@ -7,6 +7,7 @@ import android.os.Handler;
 
 import com.kai.kaidong.MainActivity;
 import com.kai.kaidong.R;
+import com.kai.kaidong.activity.TablayoutActivity;
 import com.kai.kaidong.base.BaseActivity;
 
 public class SplashActivity extends BaseActivity {
@@ -27,7 +28,7 @@ public class SplashActivity extends BaseActivity {
 
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this, MainActivity.class);
+                Intent intent=new Intent(SplashActivity.this, TablayoutActivity.class);
                 startActivity(intent);
                 finish();
             }
