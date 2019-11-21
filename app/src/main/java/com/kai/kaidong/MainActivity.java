@@ -11,11 +11,12 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
+import com.kai.kaidong.base.BaseActivity;
 import com.kai.kaidong.bottomfragment.HomeFragment;
 import com.kai.kaidong.bottomfragment.HotFragment;
 import com.kai.kaidong.bottomfragment.MineFragment;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener{
+public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener{
     BottomNavigationBar mBottomNavigationBar;
     private TextBadgeItem mTextBadgeItem;
     private HomeFragment mHomeFragment;  // 首页
@@ -26,20 +27,29 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private FragmentManager mManager;
     private FragmentTransaction mTransaction;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void init() {
         mBottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         initView();
         //initData();
         setDefaultFragment();
     }
+
+    @Override
+    protected int findView() {
+        return R.layout.activity_main;
+    }
+
     private void initView() {
         // TODO 设置模式
         mBottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
         // TODO 设置背景色样式
         mBottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
-        mBottomNavigationBar.setBarBackgroundColor(R.color.colorPrimary);
+        mBottomNavigationBar.setBarBackgroundColor(R.color.white);
 
         mTextBadgeItem = new TextBadgeItem()
                 .setBorderWidth(4)
@@ -67,10 +77,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
          *  setInActiveColorResource：未选中的颜色
          */
         mBottomNavigationBar
-                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, "首页").setActiveColorResource(R.color.design_default_color_primary_dark).setInactiveIconResource(R.mipmap.ic_launcher_round).setInActiveColorResource(R.color.colorPrimaryDark))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, "热映").setActiveColorResource(R.color.design_default_color_primary_dark).setInactiveIconResource(R.mipmap.ic_launcher_round).setInActiveColorResource(R.color.colorPrimaryDark))
+                .addItem(new BottomNavigationItem(R.drawable.hometrue, "首页").setActiveColorResource(R.color.blue).setInactiveIconResource(R.drawable.homefalse).setInActiveColorResource(R.color.black))
+                .addItem(new BottomNavigationItem(R.drawable.hottrue, "热映").setActiveColorResource(R.color.blue).setInactiveIconResource(R.drawable.hotfalse).setInActiveColorResource(R.color.black))
                 // .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, "资讯").setActiveColorResource(R.color.design_default_color_primary_dark).setInactiveIconResource(R.mipmap.ic_launcher_round).setInActiveColorResource(R.color.colorPrimaryDark).setBadgeItem(mShapeBadgeItem))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, "我的").setActiveColorResource(R.color.design_default_color_primary_dark).setInactiveIconResource(R.mipmap.ic_launcher_round).setInActiveColorResource(R.color.colorPrimaryDark).setBadgeItem(mTextBadgeItem))
+                .addItem(new BottomNavigationItem(R.drawable.mytrue, "我的").setActiveColorResource(R.color.blue).setInactiveIconResource(R.drawable.myfalse).setInActiveColorResource(R.color.black).setBadgeItem(mTextBadgeItem))
                 .setFirstSelectedPosition(lastSelectedPosition)
                 .initialise();
         // mShapeBadgeItem.hide();

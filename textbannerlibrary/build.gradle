@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+android {
+    compileSdkVersion 26
+
+    lintOptions {
+        abortOnError false
+    }
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 3
+        versionName "1.0.3"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+}
+
+publish {
+    userOrg = 'superluo'
+    repoName = 'superProject2'
+    groupId = 'com.superluo'
+    artifactId = 'textbannerview'
+    publishVersion = '1.0.5'
+    desc = 'this is a nice TextBannerView description for a project'
+    website = 'https://github.com/zsml2016/TextBannerView'
+//compile 'com.superluo:textbannerview:1.0.5'
+}
+
+
