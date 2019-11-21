@@ -24,7 +24,7 @@ import com.kai.kaidong.tabfragment.TabRegisterediFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//引用的事tablayout第三方
 public class TablayoutActivity extends BaseActivity {
 
     @Override

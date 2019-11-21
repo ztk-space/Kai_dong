@@ -1,6 +1,7 @@
 package com.kai.kaidong.tabfragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.View;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kai.kaidong.R;
+import com.kai.kaidong.activity.CardActivity;
+import com.kai.kaidong.activity.MarqueeActivity;
 import com.kai.kaidong.base.BaseFragment;
 import com.superluo.textbannerlibrary.ITextBannerItemClickListener;
 import com.superluo.textbannerlibrary.TextBannerView;
@@ -26,107 +29,93 @@ import java.util.List;
 
 public class TabFeaturesFragment extends BaseFragment {
 
-    private TextBannerView mTvBanner;
-    private TextBannerView mTvBanner1;
-    private TextBannerView mTvBanner2;
-    private TextBannerView mTvBanner3;
-    private TextBannerView mTvBanner4;
-    private List<String> mList;
+    private RecyclerView recyclerView;
+    private List<String> list = new ArrayList<>();
+
     @Override
     protected void initData() {
-        mList = new ArrayList<>();
-        mList.add("学好Java、Android、C#、C、ios、html+css+js");
-        mList.add("走遍天下都不怕！！！！！");
-        mList.add("不是我吹，就怕你做不到，哈哈");
-        mList.add("superluo");
-        mList.add("你是最棒的，奔跑吧孩子！");
-        /**
-         * 设置数据，方式一
-         */
-        mTvBanner.setDatas(mList);
-        mTvBanner.setDatas(mList);
-        mTvBanner1.setDatas(mList);
-        mTvBanner2.setDatas(mList);
-        mTvBanner3.setDatas(mList);
+        list.clear();
+        list.add("跑马灯");
+        list.add("cardview");
+        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        FeayuresAdpter feayuresAdpter = new FeayuresAdpter(list,getActivity());
+        recyclerView.setAdapter(feayuresAdpter);
+        feayuresAdpter.setOnClickOnListener(new OnClickOnListener() {
+            @Override
+            public void onClick(int position) {
+                switch (position){
+                    case 0:
+                        startActivity(new Intent(getActivity(), MarqueeActivity.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(getActivity(), CardActivity.class));
+                        break;
+                }
+            }
+        });
 
-        Drawable drawable = getResources().getDrawable(R.drawable.hottrue);
-        /**
-         * 设置数据（带图标的数据），方式二
-         */
-        //第一个参数：数据 。第二参数：drawable.  第三参数drawable尺寸。第四参数图标位置
-        mTvBanner4.setDatasWithDrawableIcon(mList,drawable,18, Gravity.LEFT);
-        setListener();
     }
 
     @Override
     protected void intView(View view) {
-        mTvBanner = view.findViewById(R.id.tv_banner);
-        mTvBanner1 = view.findViewById(R.id.tv_banner1);
-        mTvBanner2 = view.findViewById(R.id.tv_banner2);
-        mTvBanner3 = view.findViewById(R.id.tv_banner3);
-        mTvBanner4 = view.findViewById(R.id.tv_banner4);
+        recyclerView = view.findViewById(R.id.featuress_recy);
     }
 
     @Override
     protected int initLayout() {
         return R.layout.featuresfragment;
     }
-    private void setListener() {
-    mTvBanner.setItemOnClickListener(new ITextBannerItemClickListener() {
-        @Override
-        public void onItemClick(String data, int position) {
-            Toast.makeText(mContext, String.valueOf(position)+">>"+data, Toast.LENGTH_SHORT).show();
-        }
-    });
 
-    mTvBanner1.setItemOnClickListener(new ITextBannerItemClickListener() {
-        @Override
-        public void onItemClick(String data, int position) {
-            Toast.makeText(mContext, String.valueOf(position)+">>"+data, Toast.LENGTH_SHORT).show();
-        }
-    });
+    public class FeayuresAdpter extends RecyclerView.Adapter<FeayuresAdpter.FeaturesHolder>{
 
-    mTvBanner2.setItemOnClickListener(new ITextBannerItemClickListener() {
-        @Override
-        public void onItemClick(String data, int position) {
-            Toast.makeText(mContext, String.valueOf(position)+">>"+data, Toast.LENGTH_SHORT).show();
-        }
-    });
+        private List<String> list;
+        private Context context;
+        OnClickOnListener onClickOnListener;
 
-    mTvBanner3.setItemOnClickListener(new ITextBannerItemClickListener() {
-        @Override
-        public void onItemClick(String data, int position) {
-            Toast.makeText(mContext, String.valueOf(position)+">>"+data, Toast.LENGTH_SHORT).show();
+        public void setOnClickOnListener(OnClickOnListener onClickOnListener) {
+            this.onClickOnListener = onClickOnListener;
         }
-    });
+        public FeayuresAdpter(List<String> list, Context context) {
+            this.list = list;
+            this.context = context;
+        }
 
-    mTvBanner4.setItemOnClickListener(new ITextBannerItemClickListener() {
+        @NonNull
         @Override
-        public void onItemClick(String data, int position) {
-            Toast.makeText(mContext, String.valueOf(position)+">>"+data, Toast.LENGTH_SHORT).show();
+        public FeaturesHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new FeaturesHolder(LinearLayout.inflate(context,R.layout.featureslayout,null));
         }
-    });
-}
-    @Override
-    public void onResume() {
-        super.onResume();
-        /**调用startViewAnimator()重新开始文字轮播*/
-        mTvBanner.startViewAnimator();
-        mTvBanner1.startViewAnimator();
-        mTvBanner2.startViewAnimator();
-        mTvBanner3.startViewAnimator();
-        mTvBanner4.startViewAnimator();
+
+        @Override
+        public void onBindViewHolder(@NonNull FeaturesHolder holder, final int position) {
+            holder.button.setText(list.get(position));
+            holder.button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClickOnListener.onClick(position);
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return list.size();
+        }
+
+        public class FeaturesHolder extends RecyclerView.ViewHolder{
+
+            private Button button;
+
+            public FeaturesHolder(@NonNull View itemView) {
+                super(itemView);
+                button = itemView.findViewById(R.id.btn_fratures);
+            }
+        }
 
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        /**调用stopViewAnimator()暂停文字轮播，避免文字重影*/
-        mTvBanner.stopViewAnimator();
-        mTvBanner1.stopViewAnimator();
-        mTvBanner2.stopViewAnimator();
-        mTvBanner3.stopViewAnimator();
-        mTvBanner4.stopViewAnimator();
+    public interface OnClickOnListener{
+        void onClick(int position);
     }
+
 }

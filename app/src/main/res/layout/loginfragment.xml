@@ -18,6 +18,7 @@
            android:layout_marginLeft="@dimen/dp_50"
            android:layout_height="wrap_content">
            <EditText
+               android:textCursorDrawable="@null"
                android:layout_marginBottom="@dimen/dp_2"
                android:layout_marginTop="@dimen/dp_2"
                android:id="@+id/et_login_phone"
@@ -58,6 +59,7 @@
             android:layout_marginLeft="@dimen/dp_50"
             android:layout_height="wrap_content">
             <EditText
+                android:textCursorDrawable="@null"
                 android:inputType="textPassword"
                 android:layout_marginBottom="@dimen/dp_2"
                 android:layout_marginTop="@dimen/dp_2"
@@ -93,14 +95,19 @@
                 android:layout_height="wrap_content"/>
         </RelativeLayout>
     </RelativeLayout>
-    <Button
-        android:id="@+id/et_login_sure"
-        android:layout_marginTop="@dimen/dp_40"
-        android:layout_below="@id/retwo"
-        android:text="登录"
+    <io.armcha.elasticview.ElasticView
         android:layout_marginLeft="@dimen/dp_60"
         android:layout_marginRight="@dimen/dp_60"
+        android:layout_below="@id/retwo"
+        android:layout_marginTop="@dimen/dp_40"
         android:layout_width="match_parent"
-        android:background="@drawable/loginshape"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/et_login_sure"
+            android:text="登录"
+            android:layout_width="match_parent"
+            android:background="@drawable/loginshape"
+            android:layout_height="wrap_content"/>
+    </io.armcha.elasticview.ElasticView>
+
 </RelativeLayout>

@@ -22,7 +22,7 @@ import java.util.List;
 import mobile.sarproj.com.layout.SwipeLayout;
 
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
-
+//引用的事SwipeLayout第三方
 public class TabHelpFragment extends BaseFragment {
     private RecyclerView recyclerView;
     private List<String> list;
@@ -37,7 +37,7 @@ public class TabHelpFragment extends BaseFragment {
      recyclerView = view.findViewById(R.id.recy);
      list = new ArrayList<>();
      for (int i = 0;i<10;i++){
-         list.add("赵腾开"+i);
+         list.add("哦呵呵"+i);
      }
     }
 

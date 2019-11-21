@@ -7,6 +7,7 @@ import android.os.Handler;
 
 import com.kai.kaidong.MainActivity;
 import com.kai.kaidong.R;
+import com.kai.kaidong.activity.LibActivity;
 import com.kai.kaidong.activity.TablayoutActivity;
 import com.kai.kaidong.base.BaseActivity;
 

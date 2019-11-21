@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/elasticView"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <io.armcha.elasticview.ElasticView
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_weight="4"
+                android:scaleType="fitXY"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_120"/>
+            <TextView
+                android:textColor="@color/colorAccent"
+                android:id="@+id/nameText"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_gravity="center"
+                android:layout_weight="6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </io.armcha.elasticview.ElasticView>
+</LinearLayout>
