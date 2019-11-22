@@ -19,7 +19,7 @@ public class TabLoginFragment extends BaseFragment implements View.OnClickListen
     EditText etLoginPwd;
     Button etLoginSure;
     private RelativeLayout relativeLayout;
-    private boolean see = true;
+    private boolean see = false;
     @Override
     protected void initData() {
 

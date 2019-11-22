@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kai.kaidong.R;
 import com.kai.kaidong.activity.CardActivity;
 import com.kai.kaidong.activity.MarqueeActivity;
+import com.kai.kaidong.activity.StacklabelviewActivity;
 import com.kai.kaidong.base.BaseFragment;
 import com.superluo.textbannerlibrary.ITextBannerItemClickListener;
 import com.superluo.textbannerlibrary.TextBannerView;
@@ -37,6 +38,7 @@ public class TabFeaturesFragment extends BaseFragment {
         list.clear();
         list.add("跑马灯");
         list.add("cardview");
+        list.add("Stacklabelview");
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         FeayuresAdpter feayuresAdpter = new FeayuresAdpter(list,getActivity());
         recyclerView.setAdapter(feayuresAdpter);
@@ -49,6 +51,9 @@ public class TabFeaturesFragment extends BaseFragment {
                         break;
                     case 1:
                         startActivity(new Intent(getActivity(), CardActivity.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(getActivity(), StacklabelviewActivity.class));
                         break;
                 }
             }

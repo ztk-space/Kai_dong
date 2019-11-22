@@ -54,6 +54,7 @@ dependencies {
     implementation project(path: ':textbannerlibrary')
     implementation project(path: ':lib')
     implementation project(path: ':elastic_view')
+    implementation project(path: ':stacklabelview')
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     //视频播放
     implementation 'com.github.bumptech.glide:glide:3.7.0'

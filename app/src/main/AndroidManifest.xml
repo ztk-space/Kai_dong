@@ -4,6 +4,7 @@
     package="com.kai.kaidong">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CardListActivity"></activity>
+        <activity android:name=".activity.StacklabelviewActivity"></activity>
+        <activity android:name=".activity.CardListActivity" />
         <activity android:name=".activity.CardActivity" />
         <activity android:name=".activity.MarqueeActivity" />
         <activity android:name=".activity.LibActivity" />
