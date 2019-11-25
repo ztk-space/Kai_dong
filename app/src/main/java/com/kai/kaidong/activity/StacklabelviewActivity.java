@@ -3,9 +3,11 @@ package com.kai.kaidong.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -21,14 +23,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StacklabelviewActivity extends BaseActivity {
-    //引用第三方stacklabelviewgi
+    //引用第三方stacklabelview
 
     private StackLabel stackLabelView;
     private List<String> labels = new ArrayList<>();
     private Switch switchDelete;
     private CustomTitleBar customTitleBar;
     private ImageView imageView;
+    private ImageView imageViewadd;
     private Switch switchSelect;
+    private EditText editText;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +45,8 @@ public class StacklabelviewActivity extends BaseActivity {
         customTitleBar = findViewById(R.id.stack_custom);
         switchSelect = findViewById(R.id.switchSelect);
         imageView = findViewById(R.id.stack_image);
-
+        imageViewadd = findViewById(R.id.stack_image_add);
+        editText = findViewById(R.id.stack_ed);
         customTitleBar.setTitle("Stacklabelview");
         labels.add("花哪儿记账");
         labels.add("给未来写封信");
@@ -88,6 +93,21 @@ public class StacklabelviewActivity extends BaseActivity {
                 labels.clear();
                 //这个方法起的是刷新作用  无论是添加，删除之后都得调用此方法
                 stackLabelView.setLabels(labels);
+            }
+        });
+        imageViewadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ed = editText.getText().toString();
+                if(TextUtils.isEmpty(ed)){
+                    labels.add(ed);
+                    stackLabelView.setLabels(labels);
+                }else {
+                    showToast("请输入内容");
+                }
+
+                //这个方法起的是刷新作用  无论是添加，删除之后都得调用此方法
+
             }
         });
     }

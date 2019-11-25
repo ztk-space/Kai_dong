@@ -44,9 +44,7 @@
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:textColor="@color/colorPrimary" />
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></RelativeLayout>
+
 
     <ImageView
         android:id="@+id/stack_image"
@@ -56,4 +54,24 @@
         android:layout_gravity="right"
         android:layout_marginRight="@dimen/dp_20"
         android:background="@mipmap/img_delete" />
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp_50"
+        android:background="@null"
+        android:layout_gravity="right"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:textCursorDrawable="@null"
+            android:id="@+id/stack_ed"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_50"/>
+        <ImageView
+            android:id="@+id/stack_image_add"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+
+            android:background="@drawable/add" />
+    </LinearLayout>
 </LinearLayout>

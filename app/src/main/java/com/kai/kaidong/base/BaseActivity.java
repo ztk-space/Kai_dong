@@ -1,15 +1,18 @@
 package com.kai.kaidong.base;
 
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +25,7 @@ import com.kai.kaidong.util.NetBroadcastReceiver;
 public abstract  class BaseActivity extends AppCompatActivity implements NetBroadcastReceiver.NetChangeListener{
 
     public static NetBroadcastReceiver.NetChangeListener netEvent;// 网络状态改变监听事件
+    private Toast toast;
 
 
     @Override
@@ -123,6 +127,28 @@ public abstract  class BaseActivity extends AppCompatActivity implements NetBroa
      */
     @Override
     public void onNetChange(boolean netWorkState) {
+    }
+    /**
+     * 显示提示  toast
+     *
+     * @param msg 提示信息
+     */
+    @SuppressLint("ShowToast")
+    public void showToast(String msg) {
+        try {
+            if (null == toast) {
+                toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
+            } else {
+                toast.setText(msg);
+            }
+            toast.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            //解决在子线程中调用Toast的异常情况处理
+            Looper.prepare();
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+            Looper.loop();
+        }
     }
 }
 

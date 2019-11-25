@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kai.kaidong.R;
 import com.kai.kaidong.activity.CardActivity;
 import com.kai.kaidong.activity.MarqueeActivity;
+import com.kai.kaidong.activity.RingletterRegistrationloginActivity;
+import com.kai.kaidong.activity.ScratchCardActivity;
 import com.kai.kaidong.activity.StacklabelviewActivity;
 import com.kai.kaidong.base.BaseFragment;
 import com.superluo.textbannerlibrary.ITextBannerItemClickListener;
@@ -39,6 +41,8 @@ public class TabFeaturesFragment extends BaseFragment {
         list.add("跑马灯");
         list.add("cardview");
         list.add("Stacklabelview");
+        list.add("刮刮卡");
+        list.add("环信");
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         FeayuresAdpter feayuresAdpter = new FeayuresAdpter(list,getActivity());
         recyclerView.setAdapter(feayuresAdpter);
@@ -54,6 +58,12 @@ public class TabFeaturesFragment extends BaseFragment {
                         break;
                     case 2:
                         startActivity(new Intent(getActivity(), StacklabelviewActivity.class));
+                        break;
+                    case 3:
+                        startActivity(new Intent(getActivity(), ScratchCardActivity.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(getActivity(), RingletterRegistrationloginActivity.class));
                         break;
                 }
             }
