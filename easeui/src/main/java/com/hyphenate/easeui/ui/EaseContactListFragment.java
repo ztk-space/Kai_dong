@@ -14,6 +14,7 @@
 package com.hyphenate.easeui.ui;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -93,6 +94,7 @@ public class EaseContactListFragment extends EaseBaseFragment {
         //search
         query = (EditText) getView().findViewById(R.id.query);
         clearSearch = (ImageButton) getView().findViewById(R.id.search_clear);
+
     }
 
     @Override

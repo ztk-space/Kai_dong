@@ -7,7 +7,7 @@ android {
         abortOnError false
     }
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 26
         versionCode 3
         versionName "1.0.3"

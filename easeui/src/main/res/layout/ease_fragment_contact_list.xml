@@ -3,8 +3,10 @@
     xmlns:hyphenate="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools"
     android:background="@color/common_bg"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    app:ignore="NamespaceTypo">
 
     <com.hyphenate.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
@@ -15,7 +17,6 @@
     <include
         android:id="@+id/search_bar_view"
         layout="@layout/ease_search_bar_with_padding" />
-
     <FrameLayout
         android:id="@+id/content_container"
         android:layout_width="match_parent"

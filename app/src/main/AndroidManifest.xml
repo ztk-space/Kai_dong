@@ -28,7 +28,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.EaseUIMainActivity"></activity>
+        <activity android:name=".activity.XianActivity"></activity>
+        <activity android:name=".activity.MvpActivity" />
+        <activity android:name=".easeuiactivity.AddContactActivity" />
+        <activity android:name=".activity.EaseUIMainActivity" />
         <activity android:name=".activity.ECChatActivity" />
         <activity android:name=".activity.EaseUiFeaturesActivity" />
         <activity android:name=".activity.RingletterRegistrationloginActivity" />
