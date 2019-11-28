@@ -1,5 +1,6 @@
 package com.kai.kaidong.tabfragment;
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -15,14 +16,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kai.kaidong.R;
+import com.kai.kaidong.activity.ArcSeekBarActivity;
+import com.kai.kaidong.activity.AudActivity;
 import com.kai.kaidong.activity.CardActivity;
+import com.kai.kaidong.activity.DouYinActivity;
 import com.kai.kaidong.activity.MarqueeActivity;
 import com.kai.kaidong.activity.MvpActivity;
+import com.kai.kaidong.activity.RecyclerviewActivity;
 import com.kai.kaidong.activity.RingletterRegistrationloginActivity;
+import com.kai.kaidong.activity.ScllRecyActivity;
 import com.kai.kaidong.activity.ScratchCardActivity;
 import com.kai.kaidong.activity.StacklabelviewActivity;
+import com.kai.kaidong.activity.TwoPageLayoutActivity;
+import com.kai.kaidong.activity.WaterfallActivity;
 import com.kai.kaidong.activity.XianActivity;
 import com.kai.kaidong.base.BaseFragment;
+import com.kai.kaidong.recy.ListViewActivity;
 import com.superluo.textbannerlibrary.ITextBannerItemClickListener;
 import com.superluo.textbannerlibrary.TextBannerView;
 
@@ -31,7 +40,7 @@ import java.util.List;
 
 //https://github.com/Victory-Over/SuperWeb
 
-
+//可以移动的高斯模糊 http://gank.io/2018/09/11#
 public class TabFeaturesFragment extends BaseFragment {
 
     private RecyclerView recyclerView;
@@ -46,6 +55,12 @@ public class TabFeaturesFragment extends BaseFragment {
         list.add("刮刮卡");
         list.add("环信");
         list.add("股票");
+        list.add("音乐动态图");
+        list.add("抖音");
+        list.add("RecyclerView 点击&长按事件、分割线、拖曳排序、滑动删除");
+        list.add("重写LinearLayout，仿淘宝商品详情页，上拉查看更多详情。 ");
+        list.add("Android弧形拖动条(ArcSeekBar)");
+        list.add("Recyclerview瀑布流 ");
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         FeayuresAdpter feayuresAdpter = new FeayuresAdpter(list,getActivity());
         recyclerView.setAdapter(feayuresAdpter);
@@ -70,6 +85,27 @@ public class TabFeaturesFragment extends BaseFragment {
                         break;
                     case 5:
                         startActivity(new Intent(getActivity(), MvpActivity.class));
+                        break;
+                    case 6:
+                        startActivity(new Intent(getActivity(), AudActivity.class));
+                        break;
+                    case 7:
+                        startActivity(new Intent(getActivity(), DouYinActivity.class));
+                        break;
+                    case 8:
+                        //http://gank.io/2018/09/19#
+                        startActivity(new Intent(getActivity(), ScllRecyActivity.class));
+                        break;
+                    case 9:
+                        //https://github.com/LineChen/TwoPageLayout
+                        startActivity(new Intent(getActivity(), TwoPageLayoutActivity.class));
+                        break;
+                    case 10:
+                        //https://github.com/GcsSloop/arc-seekbar
+                        startActivity(new Intent(getActivity(), ArcSeekBarActivity.class));
+                        break;
+                    case 11:
+                        startActivity(new Intent(getActivity(), WaterfallActivity.class));
                         break;
                 }
             }

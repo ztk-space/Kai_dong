@@ -1,22 +1,30 @@
 package com.kai.kaidong;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.Gravity;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
+import com.facebook.rebound.SpringConfig;
+import com.jpeng.jpspringmenu.MenuListener;
 import com.kai.kaidong.base.BaseActivity;
 import com.kai.kaidong.bottomfragment.HomeFragment;
 import com.kai.kaidong.bottomfragment.HotFragment;
 import com.kai.kaidong.bottomfragment.MineFragment;
+import com.jpeng.jpspringmenu.SpringMenu;
 
-public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener{
+public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener, MenuListener {
+
+    SpringMenu mSpringMenu;
+
+
     BottomNavigationBar mBottomNavigationBar;
     private TextBadgeItem mTextBadgeItem;
     private HomeFragment mHomeFragment;  // 首页
@@ -86,6 +94,18 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         // mShapeBadgeItem.hide();
 
         mBottomNavigationBar.setTabSelectedListener(this);
+
+        mSpringMenu = new SpringMenu(this, R.layout.view_menu);
+        mSpringMenu.setMenuListener(this);
+        mSpringMenu.setFadeEnable(true);
+        mSpringMenu.setChildSpringConfig(SpringConfig.fromOrigamiTensionAndFriction(20, 5));
+        mSpringMenu.setDragOffset(0.4f);
+        ListBean[] listBeen = {new ListBean(R.drawable.add, "Option One"), new ListBean(R.drawable.add, "Option Two"), new ListBean(R.drawable.add, "Option Three"), new ListBean(R.drawable.add, "Option Four"), new ListBean(R.drawable.add, "Option Five")};
+        MyAdapter adapter = new MyAdapter(this, listBeen);
+        ListView listView = (ListView) mSpringMenu.findViewById(R.id.test_listView);
+        listView.setAdapter(adapter);
+        mSpringMenu.openMenu();
+
     }
     /**
      * 初始化数据
@@ -190,5 +210,20 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         if (mMineFragment != null){
             transaction.hide(mMineFragment);
         }
+    }
+
+    @Override
+    public void onMenuOpen() {
+        Toast.makeText(this, "Menu is opened!!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onMenuClose() {
+        Toast.makeText(this, "Menu is closed!!!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onProgressUpdate(float value, boolean bouncing) {
+
     }
 }

@@ -22,10 +22,6 @@ android {
             versionNameSuffix "-debug"  //设置后缀
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -37,6 +33,10 @@ android {
             }
         }
 
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
@@ -67,6 +67,10 @@ dependencies {
     implementation project(path: ':androidscratchcard')
     implementation project(path: ':easeui')
     implementation project(path: ':KLineChartLib')
+    implementation project(path: ':audiovisualizer')
+    implementation project(path: ':douyinloadingview-master')
+    implementation project(path: ':arc-seekbar')
+    implementation project(path: ':library')
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     //视频播放
     implementation 'com.github.bumptech.glide:glide:3.7.0'
@@ -80,7 +84,6 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.1.68.android'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.google.code.gson:gson:2.2.4'
 
 
 }

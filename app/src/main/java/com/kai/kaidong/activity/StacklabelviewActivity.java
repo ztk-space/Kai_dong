@@ -100,10 +100,10 @@ public class StacklabelviewActivity extends BaseActivity {
             public void onClick(View v) {
                 String ed = editText.getText().toString();
                 if(TextUtils.isEmpty(ed)){
+                    showToast("请输入内容");
+                }else {
                     labels.add(ed);
                     stackLabelView.setLabels(labels);
-                }else {
-                    showToast("请输入内容");
                 }
 
                 //这个方法起的是刷新作用  无论是添加，删除之后都得调用此方法

@@ -1,2 +1,2 @@
 include ':app',
-        rootProject.name = 'Kaidong', ':SnapTablayout', ':tablayout', ':swipelayout', ':superweb', ':textbannerlibrary', ':lib', ':elastic_view', ':stacklabelview', ':androidscratchcard', ':easeui', ':KLineChartLib'
+        rootProject.name = 'Kaidong', ':SnapTablayout', ':tablayout', ':swipelayout', ':superweb', ':textbannerlibrary', ':lib', ':elastic_view', ':stacklabelview', ':androidscratchcard', ':easeui', ':KLineChartLib', ':audiovisualizer', ':douyinloadingview-master', ':arc-seekbar', ':library'

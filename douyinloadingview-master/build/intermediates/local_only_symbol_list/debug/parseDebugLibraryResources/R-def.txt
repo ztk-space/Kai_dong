@@ -1,0 +1,16 @@
+R_DEF: Internal format may change without notice
+local
+attr? color1
+attr? color2
+attr? duration
+attr? gap
+attr? ltrScale
+attr? mixColor
+attr? pauseDuration
+attr? radius1
+attr? radius2
+attr? rtlScale
+attr? scaleEndFraction
+attr? scaleStartFraction
+string app_name
+styleable DYLoadingView radius1 radius2 rtlScale ltrScale color1 color2 mixColor duration pauseDuration gap scaleStartFraction scaleEndFraction

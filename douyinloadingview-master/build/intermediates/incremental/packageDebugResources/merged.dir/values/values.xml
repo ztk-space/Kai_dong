@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DouYinLoadingView</string>
+    <declare-styleable name="DYLoadingView">
+        <attr format="dimension" name="radius1"/>
+        <attr format="dimension" name="radius2"/>
+        <attr format="float" name="rtlScale"/>
+        <attr format="float" name="ltrScale"/>
+        <attr format="color" name="color1"/>
+        <attr format="color" name="color2"/>
+        <attr format="color" name="mixColor"/>
+        <attr format="integer" name="duration"/>
+        <attr format="integer" name="pauseDuration"/>
+        <attr format="dimension" name="gap"/>
+        <attr format="float" name="scaleStartFraction"/>
+        <attr format="float" name="scaleEndFraction"/>
+    </declare-styleable>
+</resources>

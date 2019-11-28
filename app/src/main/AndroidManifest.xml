@@ -23,12 +23,19 @@
     <application
         android:name=".app.ECApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@drawable/add"
+        android:label="花里胡哨"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.XianActivity"></activity>
+        <activity android:name=".activity.WaterfallActivity"></activity>
+        <activity android:name=".activity.ArcSeekBarActivity" />
+        <activity android:name=".activity.TwoPageLayoutActivity" />
+        <activity android:name=".activity.ScllRecyActivity" />
+        <activity android:name=".activity.RecyclerviewActivity" />
+        <activity android:name=".activity.DouYinActivity" />
+        <activity android:name=".activity.AudActivity" />
+        <activity android:name=".activity.XianActivity" />
         <activity android:name=".activity.MvpActivity" />
         <activity android:name=".easeuiactivity.AddContactActivity" />
         <activity android:name=".activity.EaseUIMainActivity" />
@@ -44,6 +51,15 @@
         <activity android:name=".activity.VideoPlayActivity" />
         <activity android:name=".activity.TablayoutActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".activity.BlobActivity" />
+        <activity android:name=".activity.BlastActivity" />
+        <activity android:name=".activity.WaveActivity" />
+        <activity android:name=".activity.BarActivity" />
+        <activity android:name=".activity.MusicStreamActivity" />
+        <activity android:name=".activity.CircleLineActivity" />
+        <activity android:name=".activity.HiFiActivity" />
+        <activity android:name=".recy.ListViewActivity" />
+        <activity android:name=".recy.GridViewActivity" />
         <activity android:name=".splsah.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

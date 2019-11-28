@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.TwoPageLayoutActivity">
+    <com.kai.kaidong.widget.TwoPageLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.kai.kaidong.widget.ScrollEndScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"
+                    android:background="@drawable/setting"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"
+                    android:background="@drawable/pausebtn"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="30dp"
+                    android:gravity="center"
+                    android:text="继续拖动，查看更多美女"
+                    android:onClick="onClick"
+                    tools:ignore="OnClick" />
+            </LinearLayout>
+        </com.kai.kaidong.widget.ScrollEndScrollView>
+        <com.kai.kaidong.widget.ScrollEndScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="30dp"
+                    android:gravity="center"
+                    android:text="第二页顶部"
+                    android:onClick="onClick"
+                    tools:ignore="OnClick" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"
+                    android:background="@drawable/dark_knight"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"
+                    android:background="@drawable/back"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"
+                    android:background="@drawable/cardshape"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"
+                    android:background="@drawable/backgrond"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"
+                    android:background="@drawable/ic_action_name"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"
+                    android:background="@drawable/abc_vector_test"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="30dp"
+                    android:background="#2888"
+                    android:gravity="center"
+                    android:text="已经到底了"
+                    />
+            </LinearLayout>
+
+        </com.kai.kaidong.widget.ScrollEndScrollView>
+
+    </com.kai.kaidong.widget.TwoPageLayout>
+</LinearLayout>

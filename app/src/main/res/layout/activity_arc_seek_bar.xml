@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="ArcSeekBar"
+        android:textColor="#fff"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="20dp"
+        android:text="—— Powered by GcsSloop"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/arc_seek_bar_wrap"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.gcssloop.widget.ArcSeekBar
+            android:id="@+id/arc_seek_bar"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            app:arc_border_color="#fff"
+            app:arc_border_width="3dp"
+            app:arc_colors="@array/arc_colors_default"
+            app:arc_max="100"
+            app:arc_min="-20"
+            app:arc_open_angle="80"
+            app:arc_progress="-20"
+            app:arc_rotate_angle="90"
+            app:arc_shadow_radius="5dp"
+            app:arc_thumb_color="#fff"
+            app:arc_thumb_mode="STROKE"
+            app:arc_thumb_radius="7dp"
+            app:arc_thumb_shadow_color="#000000"
+            app:arc_thumb_shadow_radius="3dp"
+            app:arc_thumb_width="3dp"
+            app:arc_width="10dp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txt_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Energy"
+        android:textColor="#fff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/arc_seek_bar_wrap"
+        app:layout_constraintLeft_toLeftOf="@id/arc_seek_bar_wrap"
+        app:layout_constraintRight_toRightOf="@id/arc_seek_bar_wrap"
+        app:layout_constraintTop_toTopOf="@id/arc_seek_bar_wrap" />
+
+
+    <Button
+        android:id="@+id/btn_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置 0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置 90"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
