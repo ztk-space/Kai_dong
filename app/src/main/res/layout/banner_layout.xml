@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/iv_banner"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/setting" />
+
+    <com.youth.banner.Banner
+        android:id="@+id/rv_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_300" />
+    <EditText
+        android:layout_marginTop="@dimen/dp_60"
+        android:background="@drawable/loginshape"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"/>
+</RelativeLayout>

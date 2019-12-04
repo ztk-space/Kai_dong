@@ -19,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.gyf.immersionbar.ImmersionBar;
+import com.kai.kaidong.R;
 import com.kai.kaidong.util.ActivityUtil;
 import com.kai.kaidong.util.NetBroadcastReceiver;
 
@@ -32,24 +34,33 @@ public abstract  class BaseActivity extends AppCompatActivity implements NetBroa
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(findView());
-        Window window = getWindow();
-        View decorView = window.getDecorView();
-        int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-        decorView.setSystemUiVisibility(option);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.GRAY);
-        }
+//        Window window = getWindow();
+//        View decorView = window.getDecorView();
+//        int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+//        decorView.setSystemUiVisibility(option);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.setStatusBarColor(Color.GRAY);
+//        }
         // 添加到Activity工具类
         ActivityUtil.getInstance().addActivity(this);
         // 初始化netEvent
         netEvent = this;
+        initImmersionBar();
         init();
     }
     protected abstract void init();
     protected abstract int findView();
-
+    /**
+     * 初始化沉浸式
+     * Init immersion bar.
+     */
+    protected void initImmersionBar() {
+        //设置共同沉浸式样式
+        //ImmersionBar.with(this).navigationBarColor(R.color.colorPrimary).init();
+        ImmersionBar.with(this).init();
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -150,5 +161,6 @@ public abstract  class BaseActivity extends AppCompatActivity implements NetBroa
             Looper.loop();
         }
     }
+
 }
 

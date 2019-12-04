@@ -20,6 +20,7 @@ import com.kai.kaidong.activity.ArcSeekBarActivity;
 import com.kai.kaidong.activity.AudActivity;
 import com.kai.kaidong.activity.CardActivity;
 import com.kai.kaidong.activity.DouYinActivity;
+import com.kai.kaidong.activity.ImmersiveActivity;
 import com.kai.kaidong.activity.MarqueeActivity;
 import com.kai.kaidong.activity.MvpActivity;
 import com.kai.kaidong.activity.RecyclerviewActivity;
@@ -61,6 +62,7 @@ public class TabFeaturesFragment extends BaseFragment {
         list.add("重写LinearLayout，仿淘宝商品详情页，上拉查看更多详情。 ");
         list.add("Android弧形拖动条(ArcSeekBar)");
         list.add("Recyclerview瀑布流 ");
+        list.add("沉浸式 ");
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         FeayuresAdpter feayuresAdpter = new FeayuresAdpter(list,getActivity());
         recyclerView.setAdapter(feayuresAdpter);
@@ -106,6 +108,9 @@ public class TabFeaturesFragment extends BaseFragment {
                         break;
                     case 11:
                         startActivity(new Intent(getActivity(), WaterfallActivity.class));
+                        break;
+                    case 12:
+                        startActivity(new Intent(getActivity(), ImmersiveActivity.class));
                         break;
                 }
             }

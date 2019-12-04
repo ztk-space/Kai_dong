@@ -25,10 +25,12 @@
         android:allowBackup="true"
         android:icon="@drawable/add"
         android:label="花里胡哨"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/add"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.WaterfallActivity"></activity>
+        <activity android:name=".activity.SActivity"></activity>
+        <activity android:name=".activity.ImmersiveActivity" />
+        <activity android:name=".activity.WaterfallActivity" />
         <activity android:name=".activity.ArcSeekBarActivity" />
         <activity android:name=".activity.TwoPageLayoutActivity" />
         <activity android:name=".activity.ScllRecyActivity" />
@@ -68,6 +70,15 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" /> <!-- 适配小米（xiaomi）刘海屏 -->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
         <meta-data
             android:name="EASEMOB_APPKEY"
             android:value="1118191107030406#myfeaturesapp" /> <!-- 声明SDK所需的service SDK核心功能 -->
