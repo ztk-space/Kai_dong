@@ -31,6 +31,7 @@ import com.kai.kaidong.activity.StacklabelviewActivity;
 import com.kai.kaidong.activity.TwoPageLayoutActivity;
 import com.kai.kaidong.activity.WaterfallActivity;
 import com.kai.kaidong.activity.XianActivity;
+import com.kai.kaidong.activity.XinDongFangActivity;
 import com.kai.kaidong.base.BaseFragment;
 import com.kai.kaidong.recy.ListViewActivity;
 import com.superluo.textbannerlibrary.ITextBannerItemClickListener;
@@ -63,6 +64,7 @@ public class TabFeaturesFragment extends BaseFragment {
         list.add("Android弧形拖动条(ArcSeekBar)");
         list.add("Recyclerview瀑布流 ");
         list.add("沉浸式 ");
+        list.add("新东方 ");
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         FeayuresAdpter feayuresAdpter = new FeayuresAdpter(list,getActivity());
         recyclerView.setAdapter(feayuresAdpter);
@@ -111,6 +113,9 @@ public class TabFeaturesFragment extends BaseFragment {
                         break;
                     case 12:
                         startActivity(new Intent(getActivity(), ImmersiveActivity.class));
+                        break;
+                    case 13:
+                        startActivity(new Intent(getActivity(), XinDongFangActivity.class));
                         break;
                 }
             }

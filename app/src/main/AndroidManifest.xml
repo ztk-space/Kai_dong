@@ -28,7 +28,8 @@
         android:roundIcon="@drawable/add"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SActivity"></activity>
+        <activity android:name=".activity.XinDongFangActivity"></activity>
+        <activity android:name=".activity.SActivity" />
         <activity android:name=".activity.ImmersiveActivity" />
         <activity android:name=".activity.WaterfallActivity" />
         <activity android:name=".activity.ArcSeekBarActivity" />
