@@ -48,34 +48,34 @@ public class XinDongFangActivity extends BaseActivity {
          recyclerView = findViewById(R.id.recy);
          bianji = findViewById(R.id.bianji);
          baocun = findViewById(R.id.baocun);
-       list.add("hahahha");
-       list.add("hahahha");
-       list.add("hahahha");
-       list.add("hahahha");
-       list.add("hahahha");
-       list.add("hahahha");
-       list.add("hahahha");
-       list.add("hahahha");
-       list.add("hahahha");
-       list.add("hahahha");
-       list.add("hahahha");
-       list.add("hahahha");
-       recyclerView.setLayoutManager(new LinearLayoutManager(this));
-       xinDongFangAdpter = new XinDongFangAdpter(this,list,aBoolean);
-       recyclerView.setAdapter(xinDongFangAdpter);
+         list.add("hahahha");
+         list.add("hahahha");
+         list.add("hahahha");
+         list.add("hahahha");
+         list.add("hahahha");
+         list.add("hahahha");
+         list.add("hahahha");
+         list.add("hahahha");
+         list.add("hahahha");
+         list.add("hahahha");
+         list.add("hahahha");
+         list.add("hahahha");
+         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+         xinDongFangAdpter = new XinDongFangAdpter(this,list,aBoolean);
+         recyclerView.setAdapter(xinDongFangAdpter);
 
-       bianji.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+         bianji.setOnClickListener(new View.OnClickListener() {
+            @Override
+               public void onClick(View v) {
                aBoolean = false;
                recyclerView.setLayoutManager(new LinearLayoutManager(XinDongFangActivity.this));
                xinDongFangAdpter = new XinDongFangAdpter(XinDongFangActivity.this,list,aBoolean);
                recyclerView.setAdapter(xinDongFangAdpter);
            }
        });
-       baocun.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+          baocun.setOnClickListener(new View.OnClickListener() {
+             @Override
+               public void onClick(View v) {
                aBoolean = true;
                recyclerView.setLayoutManager(new LinearLayoutManager(XinDongFangActivity.this));
                xinDongFangAdpter = new XinDongFangAdpter(XinDongFangActivity.this,list,aBoolean);

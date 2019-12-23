@@ -63,8 +63,8 @@ public class TabFeaturesFragment extends BaseFragment {
         list.add("重写LinearLayout，仿淘宝商品详情页，上拉查看更多详情。 ");
         list.add("Android弧形拖动条(ArcSeekBar)");
         list.add("Recyclerview瀑布流 ");
-        list.add("沉浸式 ");
-        list.add("新东方 ");
+        list.add("沉浸式");
+        list.add("新东方");
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         FeayuresAdpter feayuresAdpter = new FeayuresAdpter(list,getActivity());
         recyclerView.setAdapter(feayuresAdpter);
