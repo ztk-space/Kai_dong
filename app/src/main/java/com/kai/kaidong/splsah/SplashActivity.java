@@ -23,7 +23,7 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        mc = new MyCountDownTimer(3000, 1000);
+        mc = new MyCountDownTimer(1000, 1000);
         mc.start();
         handler.postDelayed(new Runnable() {
 

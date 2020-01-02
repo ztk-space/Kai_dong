@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="white">#ffffff</color>
     <color name="black">#000</color>
+    <color name="blackone">#E0E0E0</color>
     <color name="blue">#1296db</color>
     <array name="arc_colors_custom">
         <item>#DE7867</item>

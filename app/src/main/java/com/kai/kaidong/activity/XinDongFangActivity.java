@@ -8,15 +8,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kai.kaidong.R;
+import com.kai.kaidong.adapter.XinDongFangAdpter;
 import com.kai.kaidong.base.BaseActivity;
+import com.kai.kaidong.util.PopUtil;
+import com.kai.kaidong.util.PopWindowUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +48,6 @@ public class XinDongFangActivity extends BaseActivity {
     protected int findView() {
         return R.layout.activity_xin_dong_fang;
     }
-
    void getData(){
          recyclerView = findViewById(R.id.recy);
          bianji = findViewById(R.id.bianji);
@@ -63,7 +67,12 @@ public class XinDongFangActivity extends BaseActivity {
          recyclerView.setLayoutManager(new LinearLayoutManager(this));
          xinDongFangAdpter = new XinDongFangAdpter(this,list,aBoolean);
          recyclerView.setAdapter(xinDongFangAdpter);
-
+ xinDongFangAdpter.setOnClickListeners(new XinDongFangAdpter.OnClickListeners() {
+     @Override
+     public void setOnClick() {
+         Log.i("TAG","__________");
+     }
+ });
          bianji.setOnClickListener(new View.OnClickListener() {
             @Override
                public void onClick(View v) {
@@ -83,54 +92,9 @@ public class XinDongFangActivity extends BaseActivity {
            }
        });
 
+
    };
 
-    public class XinDongFangAdpter extends RecyclerView.Adapter<XinDongFangAdpter.XinDongFangHolder>{
 
-        private Context context;
-        private List<String> list = new ArrayList<>();
-        private boolean aBoolean = true;
-
-        public XinDongFangAdpter(Context context, List<String> list, boolean aBoolean) {
-            this.context = context;
-            this.list = list;
-            this.aBoolean = aBoolean;
-        }
-
-        @NonNull
-        @Override
-        public XinDongFangHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new XinDongFangHolder(LinearLayout.inflate(context,R.layout.xindongfanglayout,null));
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull XinDongFangHolder holder, int position) {
-            Log.i("TAG",aBoolean+"========");
-            holder.textView.setText(list.get(position));
-            if(aBoolean == false){
-                holder.imageView.setVisibility(View.VISIBLE);
-            }else {
-                holder.imageView.setVisibility(View.INVISIBLE);
-            }
-        }
-
-        @Override
-        public int getItemCount() {
-            return list.size();
-        }
-
-        public class XinDongFangHolder extends RecyclerView.ViewHolder{
-
-            private TextView textView;
-            private ImageView imageView;
-
-            public XinDongFangHolder(@NonNull View itemView) {
-                super(itemView);
-                textView = itemView.findViewById(R.id.xindongfangtext);
-                imageView = itemView.findViewById(R.id.image);
-            }
-        }
-
-    }
 
 }
