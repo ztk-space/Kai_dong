@@ -12,4 +12,6 @@
         <item>#4B9EF7</item>
         <item>#262626</item>
     </array>
+    <color name="public_line_color">#e5e5e5</color>
+    <!--标题颜色-->
 </resources>

@@ -1,5 +1,6 @@
 package com.kai.kaidong.util;
 
+import android.animation.ValueAnimator;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +9,8 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -64,7 +67,7 @@ public class PopUtil {
     public View makePopupWindow(Activity activity,int view, int view1,int CENTER) {
         //设置contentView
         View contentView = LayoutInflater.from(activity).inflate(view1, null);
-        mPopupWindow = new PopupWindow(contentView, ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, true);
+        mPopupWindow = new PopupWindow(contentView, ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT, true);
         mPopupWindow.setContentView(contentView);
         mPopupWindow.setBackgroundDrawable(new BitmapDrawable());
         contentView.setFocusable(true); // 这个很重要
@@ -81,6 +84,7 @@ public class PopUtil {
                 return false;
             }
         });
+
         View rootview = LayoutInflater.from(activity).inflate(view, null);
         View decorView = activity.getWindow().getDecorView();
         decorView.post(new Runnable() {
@@ -92,5 +96,36 @@ public class PopUtil {
             }
         });
         return contentView;
+    }
+
+
+    //mPopupWindow消失
+   public void mPopupWindowdismiss(){
+       mPopupWindow.dismiss();
+    }
+
+
+
+    //变亮
+    //dimBackground(0.5f,1.0f);
+
+        //变暗
+    //dimBackground(1.0f,0.5f);
+
+    //屏幕变暗
+    public void dimBackground(Activity activity,final float from, final float to) {
+        final Window window = activity.getWindow();
+        ValueAnimator valueAnimator = ValueAnimator.ofFloat(from, to);
+        valueAnimator.setDuration(500);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                WindowManager.LayoutParams params = window.getAttributes();
+                params.alpha = (Float) animation.getAnimatedValue();
+                window.setAttributes(params);
+            }
+        });
+
+        valueAnimator.start();
     }
 }

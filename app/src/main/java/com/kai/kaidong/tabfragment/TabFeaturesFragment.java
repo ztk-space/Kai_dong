@@ -23,6 +23,7 @@ import com.kai.kaidong.activity.DouYinActivity;
 import com.kai.kaidong.activity.ImmersiveActivity;
 import com.kai.kaidong.activity.MarqueeActivity;
 import com.kai.kaidong.activity.MvpActivity;
+import com.kai.kaidong.activity.PhoneActivity;
 import com.kai.kaidong.activity.RecyclerviewActivity;
 import com.kai.kaidong.activity.RingletterRegistrationloginActivity;
 import com.kai.kaidong.activity.ScllRecyActivity;
@@ -65,6 +66,7 @@ public class TabFeaturesFragment extends BaseFragment {
         list.add("Recyclerview瀑布流 ");
         list.add("沉浸式");
         list.add("新东方");
+        list.add("相机");
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         FeayuresAdpter feayuresAdpter = new FeayuresAdpter(list,getActivity());
         recyclerView.setAdapter(feayuresAdpter);
@@ -116,6 +118,9 @@ public class TabFeaturesFragment extends BaseFragment {
                         break;
                     case 13:
                         startActivity(new Intent(getActivity(), XinDongFangActivity.class));
+                        break;
+                    case 14:
+                        startActivity(new Intent(getActivity(), PhoneActivity.class));
                         break;
                 }
             }
