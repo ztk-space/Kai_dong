@@ -49,6 +49,7 @@ import java.util.List;
 
 import javax.security.auth.login.LoginException;
 
+import static android.Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS;
 import static android.Manifest.permission.READ_PHONE_STATE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.Manifest.permission_group.CAMERA;
@@ -61,7 +62,6 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
     ImageView imageViewvideo;
     RelativeLayout relativeLayoutone,relativeLayouttwo,relativeLayoutthere;
     private RecyclerView recyclerView;
-    private int i = 0;
 
     //随便定义的静态值  调用相机的时候用的 在onActivityResult里面和requestCode 值相对应
     private static final int REQUEST_TAKE_PHOTO_CODE = 123;
@@ -74,6 +74,9 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
     private PhoneAdapter phoneAdapter;
     private VideoAdapter videoAdapter;
     Uri mUri;
+
+    private File file;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,11 +84,14 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void init() {
+        list.clear();
+        listurl.clear();
         imageViewphone = findViewById(R.id.image_phone);
         imageViewvideo = findViewById(R.id.image_video);
         recyclerView = findViewById(R.id.phome_recy);
         imageViewphone.setOnClickListener(this);
         imageViewvideo.setOnClickListener(this);
+
     }
 
     @Override
@@ -217,9 +223,9 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
 
     private void takePhoto() {
         // 步骤一：创建存储照片的文件
-        i= i+1;
-        String path = getFilesDir() + File.separator + "images" + File.separator;
-        File file = new File(path, i+"test.jpg");
+        String  path = getFilesDir() + File.separator + "images" + File.separator;
+        Log.i("TAG","PATH"+path);
+        file = new File(path, "test.jpg");
         if(!file.getParentFile().exists())
             file.getParentFile().mkdirs();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -241,9 +247,6 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == REQUEST_TAKE_PHOTO_CODE) {//获取系统照片上传
 
-           // String action = data.getAction();
-            Log.i("TAG",String.valueOf(mUri)+"action+++++++++++++++++++++++++++++++++++");
-
             Bitmap bm = null;
             try {
                 bm = getBitmapFormUri(mUri);
@@ -252,8 +255,6 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            String path = mUri.getPath();
-            Log.i("TAG",path+"+++++++++++++++++++++++++++++++++++");
             list.add(String.valueOf(mUri));
             phoneAdapter = new PhoneAdapter(this,list);
             recyclerView.setLayoutManager(new GridLayoutManager(this,3, OrientationHelper.VERTICAL,false));
@@ -289,6 +290,7 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
             phoneAdapter = new PhoneAdapter(this,list);
             recyclerView.setLayoutManager(new GridLayoutManager(this,3, OrientationHelper.VERTICAL,false));
             recyclerView.setAdapter(phoneAdapter);
+
         }
         if (resultCode == RESULT_OK && requestCode == ACTION_VIDEO_CAPTURES) {//获取系统照片上传
             Uri uri=data.getData();
@@ -495,5 +497,95 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
             }
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("TAG","onDestroy");
+        String path;  path = getFilesDir() + File.separator + "images" + File.separator;
+        delete(path);
+    }
+
+
+    private boolean delete(String delFile) {
+        File file = new File(delFile);
+        if (!file.exists()) {
+            Toast.makeText(getApplicationContext(), "删除文件失败:" + delFile + "不存在！", Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            if (file.isFile())
+                return deleteSingleFile(delFile);
+            else
+                return deleteDirectory(delFile);
+        }
+    }
+
+    /** 删除单个文件
+     * @param filePath$Name 要删除的文件的文件名
+     * @return 单个文件删除成功返回true，否则返回false
+     */
+    private boolean deleteSingleFile(String filePath$Name) {
+        File file = new File(filePath$Name);
+        // 如果文件路径所对应的文件存在，并且是一个文件，则直接删除
+        if (file.exists() && file.isFile()) {
+            if (file.delete()) {
+                Log.i("TAG", "Copy_Delete.deleteSingleFile: 删除单个文件" + filePath$Name + "成功！");
+                return true;
+            } else {
+                Toast.makeText(getApplicationContext(), "删除单个文件" + filePath$Name + "失败！", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "删除单个文件失败：" + filePath$Name + "不存在！", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+
+    /** 删除目录及目录下的文件
+     * @param filePath 要删除的目录的文件路径
+     * @return 目录删除成功返回true，否则返回false
+     */
+    private boolean deleteDirectory(String filePath) {
+        // 如果dir不以文件分隔符结尾，自动添加文件分隔符
+        if (!filePath.endsWith(File.separator))
+            filePath = filePath + File.separator;
+        File dirFile = new File(filePath);
+        // 如果dir对应的文件不存在，或者不是一个目录，则退出
+        if ((!dirFile.exists()) || (!dirFile.isDirectory())) {
+            Toast.makeText(getApplicationContext(), "删除目录失败：" + filePath + "不存在！", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        boolean flag = true;
+        // 删除文件夹中的所有文件包括子目录
+        File[] files = dirFile.listFiles();
+        for (File file : files) {
+            // 删除子文件
+            if (file.isFile()) {
+                flag = deleteSingleFile(file.getAbsolutePath());
+                if (!flag)
+                    break;
+            }
+            // 删除子目录
+            else if (file.isDirectory()) {
+                flag = deleteDirectory(file
+                        .getAbsolutePath());
+                if (!flag)
+                    break;
+            }
+        }
+        if (!flag) {
+            Toast.makeText(getApplicationContext(), "删除目录失败！", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        // 删除当前目录
+        if (dirFile.delete()) {
+            Log.i("TAG", "Copy_Delete.deleteDirectory: 删除目录" + filePath + "成功！");
+            return true;
+        } else {
+            Toast.makeText(getApplicationContext(), "删除目录：" + filePath + "失败！", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 }

@@ -21,15 +21,16 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        tools:replace="android:label"
         android:name=".app.ECApplication"
         android:allowBackup="true"
         android:icon="@drawable/add"
         android:label="花里胡哨"
         android:roundIcon="@drawable/add"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.PhoneActivity"></activity>
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity android:name=".activity.PhotoActivity"></activity>
+        <activity android:name=".activity.PhoneActivity" />
         <activity android:name=".activity.XinDongFangActivity" />
         <activity android:name=".activity.SActivity" />
         <activity android:name=".activity.ImmersiveActivity" />
@@ -72,24 +73,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
-            android:authorities="com.kai.kaidong.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.kai.kaidong.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true"
-            >
+            android:grantUriPermissions="true">
             <meta-data
-                tools:replace="android:resource"
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"
-                >
-
-            </meta-data>
+                tools:replace="android:resource"></meta-data>
         </provider>
-        <activity android:name="com.donkingliang.imageselector.ImageSelectorActivity"></activity>
-        <activity android:name="com.donkingliang.imageselector.PreviewActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <activity android:name="com.donkingliang.imageselector.ImageSelectorActivity" />
+        <activity
+            android:name="com.donkingliang.imageselector.PreviewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <meta-data
             android:name="android.max_aspect"
             android:value="2.4" />
@@ -121,7 +122,6 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>

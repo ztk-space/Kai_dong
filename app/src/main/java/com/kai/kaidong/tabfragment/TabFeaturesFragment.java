@@ -24,6 +24,7 @@ import com.kai.kaidong.activity.ImmersiveActivity;
 import com.kai.kaidong.activity.MarqueeActivity;
 import com.kai.kaidong.activity.MvpActivity;
 import com.kai.kaidong.activity.PhoneActivity;
+import com.kai.kaidong.activity.PhotoActivity;
 import com.kai.kaidong.activity.RecyclerviewActivity;
 import com.kai.kaidong.activity.RingletterRegistrationloginActivity;
 import com.kai.kaidong.activity.ScllRecyActivity;
@@ -120,7 +121,7 @@ public class TabFeaturesFragment extends BaseFragment {
                         startActivity(new Intent(getActivity(), XinDongFangActivity.class));
                         break;
                     case 14:
-                        startActivity(new Intent(getActivity(), PhoneActivity.class));
+                        startActivity(new Intent(getActivity(), PhotoActivity.class));
                         break;
                 }
             }
