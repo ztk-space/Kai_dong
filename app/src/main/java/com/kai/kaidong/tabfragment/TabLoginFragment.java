@@ -7,10 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.kai.kaidong.MainActivity;
 import com.kai.kaidong.R;
+import com.kai.kaidong.activity.RegisteredActivity;
 import com.kai.kaidong.base.BaseFragment;
+import com.kai.kaidong.sqLite.Helper;
+import com.kai.kaidong.sqLite.Person;
+
+import java.util.List;
 
 
 public class TabLoginFragment extends BaseFragment implements View.OnClickListener {
@@ -19,7 +25,11 @@ public class TabLoginFragment extends BaseFragment implements View.OnClickListen
     EditText etLoginPwd;
     Button etLoginSure;
     private RelativeLayout relativeLayout;
+    private TextView textView;
     private boolean see = false;
+    private Helper helper;
+    private  boolean state = true;
+
     @Override
     protected void initData() {
 
@@ -32,7 +42,9 @@ public class TabLoginFragment extends BaseFragment implements View.OnClickListen
         etLoginPwd = view.findViewById(R.id.et_login_pwd);
         etLoginSure = view.findViewById(R.id.et_login_sure);
         relativeLayout = view.findViewById(R.id.rethere);
+        textView = view.findViewById(R.id.text_re);
         etLoginSure.setOnClickListener(this);
+        textView.setOnClickListener(this);
         relativeLayout.setOnClickListener(this);
     }
 
@@ -51,7 +63,24 @@ public class TabLoginFragment extends BaseFragment implements View.OnClickListen
                 }else if(TextUtils.isEmpty(etLoginPwd.getText().toString())){
                     showToast("请输入密码");
                 }else {
-                    startActivity(new Intent(getActivity(), MainActivity.class));
+                    helper = new Helper(getActivity());
+                    List<Person> persons = helper.getPersons();
+                    if(persons.size()<1){
+                        showToast("您还未注册账号,请先注册");
+                    }
+                    for (int i = 0;i<persons.size();i++){
+                        String name = persons.get(i).getName();
+                        String pwd = persons.get(i).getPwd();
+                        if(etLoginPhone.getText().toString().equals(name) && etLoginPwd.getText().toString().equals(pwd)){
+                            state = true;
+                            startActivity(new Intent(getActivity(), MainActivity.class));
+                        }else {
+                            state = false;
+                        }
+                    }
+                }
+                if (state==false){
+                    showToast("账号密码不正确");
                 }
                 break;
             case R.id.rethere :
@@ -62,7 +91,9 @@ public class TabLoginFragment extends BaseFragment implements View.OnClickListen
                     see = true;
                     etLoginPwd.setInputType(129);//
                 }
-
+                break;
+            case R.id.text_re:
+                   startActivity(new Intent(getActivity(), RegisteredActivity.class));
                 break;
         }
     }

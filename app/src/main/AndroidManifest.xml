@@ -29,7 +29,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
-        <activity android:name=".activity.PhotoActivity"></activity>
+        <activity android:name=".activity.RegisteredActivity"></activity>
+        <activity android:name=".activity.UpdateActivity" />
+        <activity android:name=".activity.PhotoActivity" />
         <activity android:name=".activity.PhoneActivity" />
         <activity android:name=".activity.XinDongFangActivity" />
         <activity android:name=".activity.SActivity" />
@@ -55,7 +57,9 @@
         <activity android:name=".activity.MarqueeActivity" />
         <activity android:name=".activity.LibActivity" />
         <activity android:name=".activity.VideoPlayActivity" />
-        <activity android:name=".activity.TablayoutActivity" />
+        <activity android:name=".activity.TablayoutActivity"
+            android:launchMode="singleTask"
+            />
         <activity android:name=".MainActivity" />
         <activity android:name=".activity.BlobActivity" />
         <activity android:name=".activity.BlastActivity" />
@@ -82,7 +86,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"
-                tools:replace="android:resource"></meta-data>
+                tools:replace="android:resource" />
         </provider>
 
         <activity android:name="com.donkingliang.imageselector.ImageSelectorActivity" />

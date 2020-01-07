@@ -20,7 +20,7 @@
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
-        android:background="@color/public_line_color"
+        android:background="@color/colorPrimary"
         android:layout_height="@dimen/dp_2"/>
     <RelativeLayout
         android:id="@+id/re_two"
@@ -38,7 +38,7 @@
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
-        android:background="@color/public_line_color"
+        android:background="@color/colorPrimary"
         android:layout_height="@dimen/dp_2"/>
     <RelativeLayout
         android:id="@+id/re_there"
