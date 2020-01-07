@@ -21,6 +21,7 @@ import java.util.List;
 public class RegisteredActivity extends BaseActivity implements View.OnClickListener {
     EditText etLoginPhone;
     EditText etLoginPwd;
+    EditText getEtLoginPhone;
     Button etLoginSure;
     private Helper helper;
     private boolean see = false;
@@ -34,9 +35,10 @@ public class RegisteredActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void init() {
 
-            etLoginPhone = findViewById(R.id.et_login_phone);
+            etLoginPhone = findViewById(R.id.et_login_name);
             etLoginPwd = findViewById(R.id.et_login_pwd);
             etLoginSure = findViewById(R.id.et_login_sure);
+            getEtLoginPhone = findViewById(R.id.et_login_phone);
             etLoginSure.setOnClickListener(this);
     }
 
@@ -55,8 +57,12 @@ public class RegisteredActivity extends BaseActivity implements View.OnClickList
                     showToast("请输入密码");
                 }else {
                     helper = new Helper(this);
-                    helper.add(etLoginPhone.getText().toString(), etLoginPwd.getText().toString());
-                    finish();
+                    helper.add(etLoginPhone.getText().toString(),etLoginPwd.getText().toString(),getEtLoginPhone.getText().toString());
+                    List<Person> persons = helper.getPersons();
+                    if(persons.size()>0){
+                        showToast("注册成功");
+                        finish();
+                    }
                 }
                 break;
             case R.id.rethere :

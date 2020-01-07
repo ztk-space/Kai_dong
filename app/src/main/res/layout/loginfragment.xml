@@ -18,6 +18,7 @@
            android:layout_marginLeft="@dimen/dp_50"
            android:layout_height="wrap_content">
            <EditText
+               android:phoneNumber="true"
                android:textCursorDrawable="@null"
                android:layout_marginBottom="@dimen/dp_2"
                android:layout_marginTop="@dimen/dp_2"
@@ -59,6 +60,7 @@
             android:layout_marginLeft="@dimen/dp_50"
             android:layout_height="wrap_content">
             <EditText
+                android:phoneNumber="true"
                 android:textCursorDrawable="@null"
                 android:inputType="textPassword"
                 android:layout_marginBottom="@dimen/dp_2"

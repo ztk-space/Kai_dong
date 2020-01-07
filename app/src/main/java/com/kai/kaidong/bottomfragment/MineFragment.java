@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.kai.kaidong.R;
 import com.kai.kaidong.activity.TablayoutActivity;
@@ -28,6 +29,7 @@ public class MineFragment extends BaseFragment {
 
     private ImageView imageView;
     RelativeLayout relativeLayout;
+    TextView textViewphone,textViewname;
 
     @Override
     protected void initData() {
@@ -38,6 +40,16 @@ public class MineFragment extends BaseFragment {
     protected void intView(View view) {
         imageView = view.findViewById(R.id.image_setting);
         relativeLayout = view.findViewById(R.id.reqingchu);
+        textViewname = view.findViewById(R.id.text_name);
+        textViewphone = view.findViewById(R.id.text_phone); helper = new Helper(getActivity());
+        List<Person> persons = helper.getPersons();
+        for (int i = 0; i < persons.size(); i++) {
+            String name = persons.get(i).getName();
+            String phone = persons.get(i).getPhone();
+             textViewphone.setText(phone);
+             textViewname.setText(name);
+        }
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

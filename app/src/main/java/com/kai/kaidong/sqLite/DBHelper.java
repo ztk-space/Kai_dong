@@ -22,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         Log.i("TAG:", "创建person数据库表！");
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS person(_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                " name VARCHAR,password VARCHAR)");
+                " name VARCHAR,password VARCHAR,phone VARCHAR)");
     }
 
     @Override

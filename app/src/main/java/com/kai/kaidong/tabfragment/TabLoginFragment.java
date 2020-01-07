@@ -93,6 +93,8 @@ public class TabLoginFragment extends BaseFragment implements View.OnClickListen
                 }
                 break;
             case R.id.text_re:
+                   etLoginPwd.setText("");
+                   etLoginPhone.setText("");
                    startActivity(new Intent(getActivity(), RegisteredActivity.class));
                 break;
         }

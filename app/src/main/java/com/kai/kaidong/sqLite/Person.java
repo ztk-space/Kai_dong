@@ -4,10 +4,12 @@ public class Person {
 
     private String name;
     private String pwd;
+    private String phone;
 
-    public Person(String name, String pwd) {
+    public Person(String name, String pwd, String phone) {
         this.name = name;
         this.pwd = pwd;
+        this.phone = phone;
     }
 
     public String getName() {
@@ -24,5 +26,13 @@ public class Person {
 
     public void setPwd(String pwd) {
         this.pwd = pwd;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

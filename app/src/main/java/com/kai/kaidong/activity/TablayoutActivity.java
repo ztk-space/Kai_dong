@@ -17,6 +17,8 @@ import android.widget.TextView;
 import com.kai.kaidong.R;
 import com.kai.kaidong.base.BaseActivity;
 import com.antiless.support.widget.TabLayout;
+import com.kai.kaidong.bottomfragment.MineFragment;
+import com.kai.kaidong.sqLite.Helper;
 import com.kai.kaidong.tabfragment.TabFeaturesFragment;
 import com.kai.kaidong.tabfragment.TabHelpFragment;
 import com.kai.kaidong.tabfragment.TabLoginFragment;
