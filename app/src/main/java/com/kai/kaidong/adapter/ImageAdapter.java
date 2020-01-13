@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.kai.kaidong.R;
-import com.kai.kaidong.activity.PhotoActivity;
 
 import java.io.File;
 
@@ -49,7 +48,7 @@ public class ImageAdapter extends ListBaseAdapter<File> {
         final ViewHolder viewHolder = (ViewHolder) holder;
         final int mPosition = viewHolder.getAdapterPosition();
         if (mPosition == getItemCount() - 1) {//数据的最后一条（显示的添加图片的那个按钮）
-            viewHolder.ivPic.setBackgroundResource(R.drawable.add);
+            viewHolder.ivPic.setBackgroundResource(R.drawable.takeapicture);
             if (mOnPicClickListener != null) {
                 viewHolder.ivPic.setOnClickListener(new View.OnClickListener() {
                     @Override

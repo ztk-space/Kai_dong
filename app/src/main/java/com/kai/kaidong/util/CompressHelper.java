@@ -25,7 +25,7 @@ public class CompressHelper {
     /**
      * 最大高度,默认为960
      */
-    private float maxHeight = 960.0f;
+    private float maxHeight =+ 960.0f;
     /**
      * 默认压缩后的方式为JPEG
      * PNG

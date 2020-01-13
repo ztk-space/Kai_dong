@@ -97,4 +97,5 @@ dependencies {
 
     implementation 'com.github.donkingliang:ImageSelector:1.6.0'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
 }

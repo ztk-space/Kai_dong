@@ -65,18 +65,17 @@ public class PhotoActivity extends BaseActivity {
         imageAdapter.setOnPicClickListener(new ImageAdapter.OnPicClickListener() {
             @Override
             public void onPicClick() {
-                openCamera();
+
+                if (!checkPermission()) { //没有或没有全部授权
+                    requestPermissions(); //请求权限
+                }else {
+                    openCamera();
+                }
             }
         });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(PhotoActivity.this, "我只是个按钮", Toast.LENGTH_SHORT).show();
-//                if (!checkPermission()) { //没有或没有全部授权
-//                    requestPermissions(); //请求权限
-//                }else {
-//                    openCamera();
-//                }
                 List<File> dataList = imageAdapter.getDataList();
                 for (int i = 0;i<dataList.size();i++){
                     File file = dataList.get(i);

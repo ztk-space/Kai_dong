@@ -29,7 +29,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
-        <activity android:name=".activity.RegisteredActivity"></activity>
+        <activity android:name=".activity.PictureSelectorActivity"></activity>
+        <activity android:name=".activity.RegisteredActivity" />
         <activity android:name=".activity.UpdateActivity" />
         <activity android:name=".activity.PhotoActivity" />
         <activity android:name=".activity.PhoneActivity" />
@@ -57,9 +58,9 @@
         <activity android:name=".activity.MarqueeActivity" />
         <activity android:name=".activity.LibActivity" />
         <activity android:name=".activity.VideoPlayActivity" />
-        <activity android:name=".activity.TablayoutActivity"
-            android:launchMode="singleTask"
-            />
+        <activity
+            android:name=".activity.TablayoutActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".MainActivity" />
         <activity android:name=".activity.BlobActivity" />
         <activity android:name=".activity.BlastActivity" />
